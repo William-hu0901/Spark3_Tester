@@ -1,4 +1,4 @@
-# Spark2 Test Project
+# Spark3 Test Project
 
 This is a comprehensive Apache Spark functionality test project written in Java 21, covering the main functional modules of Spark3.
 
