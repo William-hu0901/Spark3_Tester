@@ -1,171 +1,187 @@
 # Spark Service Test Project
 
-这是一个完整的Apache Spark功能测试项目，使用Java 21编写，涵盖了Spark的主要功能模块。
+This is a comprehensive Apache Spark functionality test project written in Java 21, covering the main functional modules of Spark.
 
-## 项目结构
+## Project Structure
 
 ```
 src/test/java/org/daodao/
-├── SparkCoreTest.java          # Spark Core RDD操作测试
-├── SparkSQLTest.java           # Spark SQL DataFrame操作测试
-├── SparkStreamingTest.java     # Spark Streaming流处理测试
-├── SparkMLlibTest.java        # Spark MLlib机器学习测试
-├── SparkGraphXTest.java        # Spark GraphX图计算测试
-├── SparkIntegrationTest.java   # Spark集成测试
-├── SparkPerformanceTest.java   # Spark性能测试
-└── TestSuite.java              # 测试套件
+├── SparkCoreTest.java          # Spark Core RDD operations tests
+├── SparkSQLTest.java           # Spark SQL DataFrame operations tests
+├── SparkStreamingTest.java     # Spark Streaming stream processing tests
+├── SparkMLlibTest.java        # Spark MLlib machine learning tests
+├── SparkGraphXTest.java        # Spark GraphX graph computing tests
+├── SparkIntegrationTest.java   # Spark integration tests
+├── SparkPerformanceTest.java   # Spark performance tests
+├── GraphDegreesAnalyzerTest.java # Graph degree analysis tests
+└── TestSuite.java              # Test suite
 
 src/test/resources/
-├── logback-test.xml            # 日志配置
-├── test-data.txt               # 测试数据文件
-└── people.json                 # JSON测试数据
+├── logback-test.xml            # Logging configuration
+├── test-data.txt               # Test data file
+└── people.json                 # JSON test data
 ```
 
-## 功能覆盖
+## Feature Coverage
 
 ### 1. Spark Core (SparkCoreTest.java)
-- RDD创建和基本操作
-- 转换操作：map, filter, flatMap
-- 行动操作：count, collect, reduce, first, take
-- 键值对操作：reduceByKey, groupByKey, join
-- 缓存和持久化操作
-- 文件读写操作
+- RDD creation and basic operations
+- Transformation operations: map, filter, flatMap
+- Action operations: count, collect, reduce, first, take
+- Key-value pair operations: reduceByKey, groupByKey, join
+- Caching and persistence operations
+- File read/write operations
 
 ### 2. Spark SQL (SparkSQLTest.java)
-- DataFrame创建和操作
-- SQL查询和聚合
-- 用户自定义函数(UDF)
-- 窗口函数
-- 连接操作
-- JSON文件处理
-- 数据透视操作
+- DataFrame creation and operations
+- SQL queries and aggregations
+- User Defined Functions (UDF)
+- Window functions
+- Join operations
+- JSON file processing
+- Data pivot operations
 
 ### 3. Spark Streaming (SparkStreamingTest.java)
-- 基本流处理
-- 流式转换操作
-- 窗口操作
-- 状态管理
-- Transform操作
+- Basic stream processing
+- Stream transformation operations
+- Window operations
+- State management
+- Transform operations
 
 ### 4. Spark MLlib (SparkMLlibTest.java)
-- 线性回归
-- 逻辑回归
+- Linear regression
+- Logistic regression
 - ML Pipeline
-- 特征工程
-- 模型保存和加载
-- 特征组装器
+- Feature engineering
+- Model saving and loading
+- Feature assembler
 
 ### 5. Spark GraphX (SparkGraphXTest.java)
-- 图创建和基本操作
-- 图转换
-- 图聚合
-- 连通组件
-- PageRank算法
-- 三角计数
-- 子图操作
+- Graph creation and basic operations
+- Graph transformations
+- Graph aggregations
+- Connected components
+- PageRank algorithm
+- Triangle counting
+- Subgraph operations
 
-### 6. 图度数分析 (GraphDegreesAnalyzerTest.java)
-- 使用Spark SQL进行图度数计算
-- 入度、出度和总度数统计
-- 图度数统计信息计算
-- 空图和单节点图测试
-- DataFrame API图操作测试
+### 6. Graph Degree Analysis (GraphDegreesAnalyzerTest.java)
+- Graph degree calculation using Spark SQL
+- In-degree, out-degree, and total degree statistics
+- Graph degree statistics computation
+- Empty graph and single node graph tests
+- DataFrame API graph operations tests
 
-### 7. 集成测试 (SparkIntegrationTest.java)
-- RDD与DataFrame转换
-- 复杂数据处理流水线
-- Mock测试
-- 多种数据格式处理
-- 性能优化
-- 错误处理
-- 广播变量
+### 7. Integration Tests (SparkIntegrationTest.java)
+- RDD to DataFrame conversion
+- Complex data processing pipelines
+- Mock testing
+- Multiple data format processing
+- Performance optimization
+- Error handling
+- Broadcast variables
 
-### 8. 性能测试 (SparkPerformanceTest.java)
-- 大数据集处理
-- 缓存性能
-- 并行处理
-- 内存效率
-- 连接性能
-- 优化策略
-- 广播变量性能
+### 8. Performance Tests (SparkPerformanceTest.java)
+- Large dataset processing
+- Caching performance
+- Parallel processing
+- Memory efficiency
+- Join performance
+- Optimization strategies
+- Broadcast variable performance
 
-## 技术栈
+## Technology Stack
 
 - **Java**: 21
-- **Spark**: 3.5.0
-- **Scala**: 2.12
+- **Spark**: 3.5.7
+- **Scala**: 2.12.18
 - **JUnit**: 5.10.0
+- **JUnit Platform Suite**: 1.10.1
 - **Mockito**: 5.7.0
 - **Lombok**: 1.18.30
 - **SLF4J**: 2.0.9
 - **Logback**: 1.4.11
+- **Jackson**: 2.15.2
+- **GraphFrames**: 0.9.0-spark3.5
+- **Hadoop**: 3.3.6
 
-## 运行测试
+## Running Tests
 
-### 运行所有测试
+### Run All Tests
 ```bash
 mvn clean test
 ```
 
-### 运行特定测试类
+### Run Specific Test Class
 ```bash
 mvn test -Dtest=SparkCoreTest
 ```
 
-### 运行测试套件
+### Run Test Suite
 ```bash
 mvn test -Dtest=TestSuite
 ```
 
-### 运行性能测试
+### Run Performance Tests
 ```bash
 mvn test -Dtest=SparkPerformanceTest
 ```
 
-## 配置说明
+### Run Graph Degree Analysis Tests
+```bash
+mvn test -Dtest=GraphDegreesAnalyzerTest
+```
 
-### Maven配置
-- 使用Java 21编译
-- 配置了所有必要的Spark依赖
-- 包含测试依赖和插件
-- 支持JUnit Platform Suite
+## Configuration
 
-### 日志配置
-- 使用Logback作为日志实现
-- 配置了控制台输出
-- Spark日志级别设为WARN
-- 项目日志级别设为DEBUG
+### Maven Configuration
+- Compiled with Java 21
+- Configured all necessary Spark dependencies
+- Includes test dependencies and plugins
+- Supports JUnit Platform Suite
+- Configured JVM arguments for Java 21 compatibility
 
-### 测试数据
-- 提供了文本和JSON格式的测试数据
-- 数据文件位于`src/test/resources/`目录
+### Logging Configuration
+- Uses Logback as logging implementation
+- Configured console output
+- Spark log level set to WARN
+- Project log level set to DEBUG
 
-## 注意事项
+### Test Data
+- Provides text and JSON format test data
+- Data files located in `src/test/resources/` directory
 
-1. **内存配置**: 测试使用本地模式，建议至少分配2GB内存
-2. **并行度**: 默认使用本地所有可用核心
-3. **测试隔离**: 每个测试类都有独立的setup和teardown
-4. **性能测试**: 某些性能测试可能需要较长时间完成
-5. **GraphX测试**: 需要Scala支持，确保Scala库正确配置
+## Important Notes
 
-## 扩展建议
+1. **Memory Configuration**: Tests use local mode, recommend allocating at least 2GB memory
+2. **Parallelism**: Uses all available local cores by default
+3. **Test Isolation**: Each test class has independent setup and teardown
+4. **Performance Tests**: Some performance tests may require longer time to complete
+5. **GraphX Tests**: Require Scala support, ensure Scala libraries are properly configured
+6. **Java 21 Compatibility**: JVM arguments are configured for Java 21 module system compatibility
 
-1. 添加更多Spark功能的测试用例
-2. 集成CI/CD流水线
-3. 添加性能基准测试
-4. 支持不同Spark版本的测试
-5. 添加更多数据源连接测试
+## Extension Suggestions
 
-## 故障排除
+1. Add more Spark functionality test cases
+2. Integrate CI/CD pipelines
+3. Add performance benchmarking tests
+4. Support testing with different Spark versions
+5. Add more data source connection tests
+6. Add Spark Structured Streaming tests
+7. Include GraphFrames integration tests
 
-### 常见问题
-1. **内存不足**: 增加JVM堆内存设置
-2. **Scala版本冲突**: 确保Scala版本与Spark兼容
-3. **测试超时**: 调整测试超时时间
-4. **依赖冲突**: 检查Maven依赖树
+## Troubleshooting
 
-### 调试建议
-1. 查看测试日志输出
-2. 使用Spark UI监控作业执行
-3. 检查测试数据文件是否存在
-4. 验证Maven依赖是否正确下载
+### Common Issues
+1. **Insufficient Memory**: Increase JVM heap memory settings
+2. **Scala Version Conflicts**: Ensure Scala version is compatible with Spark
+3. **Test Timeouts**: Adjust test timeout settings
+4. **Dependency Conflicts**: Check Maven dependency tree
+5. **Java 21 Module System**: Ensure proper JVM arguments are configured
+
+### Debugging Tips
+1. Check test log output
+2. Use Spark UI to monitor job execution
+3. Verify test data files exist
+4. Confirm Maven dependencies are correctly downloaded
+5. Check GraphFrames compatibility if graph tests fail

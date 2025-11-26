@@ -5,7 +5,7 @@ import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 
 /**
- * Test Suite for Spark Service
+ * Test Suite for Spark Tester
  * This suite runs all Spark-related tests to ensure comprehensive coverage
  * of Spark functionality including Core, SQL, Streaming, MLlib, and GraphX.
  */
@@ -24,7 +24,7 @@ import org.junit.platform.suite.api.Suite;
 public class TestSuite {
     
     static {
-        log.info("Initializing Spark Service Test Suite");
+        log.info("Initializing Spark Tester Test Suite");
         log.info("This test suite covers:");
         log.info("1. Spark Core - RDD operations, transformations, actions");
         log.info("2. Spark SQL - DataFrame operations, queries, UDFs");
