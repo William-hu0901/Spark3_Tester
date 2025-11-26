@@ -1,6 +1,6 @@
-# Spark Service Test Project
+# Spark2 Test Project
 
-This is a comprehensive Apache Spark functionality test project written in Java 21, covering the main functional modules of Spark.
+This is a comprehensive Apache Spark functionality test project written in Java 21, covering the main functional modules of Spark3.
 
 ## Project Structure
 
